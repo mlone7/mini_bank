@@ -1,5 +1,7 @@
 package Model
 
+class User(
+    id: Long
+) {
 
-class User {
 }
