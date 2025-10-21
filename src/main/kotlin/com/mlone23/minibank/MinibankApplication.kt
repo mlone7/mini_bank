@@ -10,4 +10,6 @@ fun main(args: Array<String>) {
 	runApplication<MinibankApplication>(*args)
 
 	println("artuuuuur")
+
+	println("test")
 }
