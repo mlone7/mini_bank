@@ -8,4 +8,7 @@ class MinibankApplication
 
 fun main(args: Array<String>) {
 	runApplication<MinibankApplication>(*args)
+
+	println("Misha")
+
 }
