@@ -11,4 +11,6 @@ fun main(args: Array<String>) {
 
 	println("Misha")
 
+	println("Misha test 2")
+
 }
