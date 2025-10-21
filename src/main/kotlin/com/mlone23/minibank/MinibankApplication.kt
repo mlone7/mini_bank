@@ -12,4 +12,7 @@ fun main(args: Array<String>) {
 	println("artuuuuur")
 
 	println("test")
+
+	println("")
+	println("")
 }
