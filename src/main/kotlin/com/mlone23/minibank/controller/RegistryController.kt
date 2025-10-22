@@ -1,22 +1,19 @@
 package com.mlone23.minibank.controller
 
 import com.mlone23.minibank.model.User
+import com.mlone23.minibank.repository.UserRepository
 import com.mlone23.minibank.service.RegisterService
-import io.swagger.v3.oas.annotations.tags.Tag
-import org.springframework.web.bind.annotation.*
+import org.springframework.stereotype.Service
+import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestMapping
+import org.springframework.web.bind.annotation.RestController
 
 @RestController
 @RequestMapping("/api")
-@Tag(name = "Accounts", description = "ss")
-class RegistryController(val registerService: RegisterService) {
 
-    @GetMapping("/")
-    fun home(): String {
-        return "redirect:/swagger-ui.html"
-    }
+class RegistryController(val user: User, val registerService: RegisterService) {
 
-    @PostMapping("/register")
-    fun registryController(@RequestParam email: String, @RequestParam password: String, @RequestParam name: String): User {
+    fun registryController(@RequestBody email: String, @RequestBody password: String, @RequestBody name: String): User{
         val user = registerService.registryUser(email, password, name)
         return user
     }
