@@ -16,8 +16,9 @@ class RegistryController(val registerService: RegisterService) {
     }
 
     @PostMapping("/register")
-    fun registryController(@RequestParam email: String, @RequestParam password: String, @RequestParam name: String): User{
+    fun registryController(@RequestParam email: String, @RequestParam password: String, @RequestParam name: String): User {
         val user = registerService.registryUser(email, password, name)
         return user
     }
+    //
 }
