@@ -1,9 +1,9 @@
-package Model
+package com.mlone23.minibank.model
 
 import jakarta.persistence.*
 
 @Entity
-@Table(name = "Users")
+@Table(name = "users")
 data class User(
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
