@@ -20,5 +20,4 @@ class RegistryController(val registerService: RegisterService) {
         val user = registerService.registryUser(email, password, name)
         return user
     }
-    //
 }
