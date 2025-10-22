@@ -16,7 +16,4 @@ data class User(
     @Column(nullable = false)
     var name: String
 ) {
-
-
-
 }
