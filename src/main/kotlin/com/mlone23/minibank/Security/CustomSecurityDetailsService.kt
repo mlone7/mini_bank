@@ -12,10 +12,18 @@ open class CustomUserDetailsService(
 ) : UserDetailsService {
 
     override fun loadUserByUsername(email: String): UserDetails {
+        println("=== AUTH ===")
+        println("Searching email: $email")
+
+
         val user = userRepository.findByEmail(email) ?: throw RuntimeException("Email not found")
+
+        println("User found: ${user.email}")
+        println("Password from DB: ${user.password}")
+        println("Password with prefix: {noop}${user.password}")
         return User.builder()
             .username(user.email)
-            .password(user.password)
+            .password("{noop}${user.password}")
             .roles("USER")
             .build()
     }
