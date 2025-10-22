@@ -18,4 +18,6 @@ data class User(
     @Column(nullable = false)
     var password: String
 ) {
-}
+    constructor(email: String, name: String, password: String) :
+            this (null, email, name, password)
+ }
