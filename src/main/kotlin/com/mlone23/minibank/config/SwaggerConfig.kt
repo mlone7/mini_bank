@@ -1,4 +1,4 @@
-package skyw96.investments.Kotlin.Config
+package com.mlone23.minibank.config
 
 import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.info.Info
@@ -25,17 +25,14 @@ open class SwaggerConfig {
                 .description("API for investment portfolio management")
                 .version("1.0")
         )
+        .addSecurityItem(SecurityRequirement().addList("BasicAuth"))
         .components(
             io.swagger.v3.oas.models.Components()
                 .addSecuritySchemes(
-                    "basicAuth",
+                    "BasicAuth",
                     SecurityScheme()
                         .type(SecurityScheme.Type.HTTP)
                         .scheme("basic")
-                        .name("basicAuth")
                 )
-        )
-        .addSecurityItem(
-            SecurityRequirement().addList("basicAuth")
         )
 }
