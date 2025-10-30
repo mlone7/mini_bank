@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>MiniBank - Register</title>
+  <style>
+    body {
+        font-family: 'Arial', sans-serif;
+        max-width: 600px;
+        margin: 50px auto;
+        padding: 30px;
+        background-color: #0d0d0d;
+        color: #ffffff;
+        min-height: 100vh;
+    }
+    .page-header {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+    .page-title {
+        font-size: 2em;
+        font-weight: 300;
+        margin-bottom: 10px;
+    }
+    .page-subtitle {
+        color: #868e96;
+        font-size: 1em;
+    }
+    .form-card {
+        background: #1a1a1a;
+        border: 1px solid #333;
+        border-radius: 16px;
+        padding: 25px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    label {
+        display: block;
+        margin-bottom: 8px;
+        color: #cccccc;
+        font-weight: 600;
+    }
+    input {
+        width: 100%;
+        padding: 12px 15px;
+        background: #2d2d2d;
+        color: #ffffff;
+        border: 1px solid #555;
+        border-radius: 10px;
+        font-size: 1em;
+        transition: all 0.3s;
+        box-sizing: border-box;
+    }
+    input:focus {
+        outline: none;
+        border-color: #4dabf7;
+        box-shadow: 0 0 0 3px rgba(77, 171, 247, 0.2);
+    }
+    button {
+        width: 100%;
+        padding: 14px;
+        background: linear-gradient(45deg, #4dabf7, #228be6);
+        color: white;
+        border: none;
+        border-radius: 12px;
+        font-size: 1.1em;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.3s;
+        margin-top: 10px;
+    }
+    button:hover {
+        transform: translateY(-2px);
+        background: linear-gradient(45deg, #339af0, #1c7ed6);
+        box-shadow: 0 6px 20px rgba(34, 139, 230, 0.4);
+    }
+    .success, .error {
+        margin-bottom: 15px;
+        padding: 12px;
+        border-radius: 10px;
+        font-weight: bold;
+    }
+    .success {
+        color: #51cf66;
+        background: rgba(81, 207, 102, 0.1);
+        border: 1px solid #51cf66;
+    }
+    .error {
+        color: #ff6b6b;
+        background: rgba(255, 107, 107, 0.1);
+        border: 1px solid #ff6b6b;
+    }
+  </style>
+</head>
+<body>
+<div class="page-header">
+  <h1 class="page-title">Register New User</h1>
+  <p class="page-subtitle">Create your MiniBank account</p>
+</div>
+
+<div th:if="${success}" class="success" th:text="${success}"></div>
+<div th:if="${error}" class="error" th:text="${error}"></div>
+
+<div class="form-card">
+  <form method="post" th:action="@{/register}">
+    <div class="form-group">
+      <label>Email:</label>
+      <input type="email" name="email" required />
+    </div>
+    <div class="form-group">
+      <label>Name:</label>
+      <input type="text" name="name" required />
+    </div>
+    <div class="form-group">
+      <label>Password:</label>
+      <input type="password" name="password" required />
+    </div>
+    <button type="submit">Register</button>
+  </form>
+</div>
+</body>
+</html>
