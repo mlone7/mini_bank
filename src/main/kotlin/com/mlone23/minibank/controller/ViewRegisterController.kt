@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
-class ViewController(
+class ViewRegisterController(
     private val registerService: RegisterService
 ) {
 
@@ -25,7 +25,7 @@ class ViewController(
         return try {
             registerService.registryUser(email, password, name)
             model.addAttribute("success", "User registered successfully!")
-            "redirect:/dashboard?name=$name"
+            "redirect:/dashboard"
         } catch (e: Exception) {
             model.addAttribute("error", "Error: ${e.message}")
             "register"

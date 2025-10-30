@@ -24,6 +24,7 @@ open class SecurityConfig {
             .authorizeHttpRequests { auth -> auth
                 .requestMatchers(
                     "/api/register",
+                    "/register",
                     "/api/debug/swagger-config",
                     "/api/logout",
                     "/swagger-ui/html",
