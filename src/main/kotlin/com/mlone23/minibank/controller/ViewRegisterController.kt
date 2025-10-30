@@ -25,7 +25,7 @@ class ViewRegisterController(
         return try {
             registerService.registryUser(email, password, name)
             model.addAttribute("success", "User registered successfully!")
-            "redirect:/dashboard"
+            "redirect:/dashboard?name=$name"
         } catch (e: Exception) {
             model.addAttribute("error", "Error: ${e.message}")
             "register"
