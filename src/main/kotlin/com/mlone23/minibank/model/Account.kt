@@ -14,4 +14,8 @@ data class Account(
 
     @Column(nullable = false)
     var balance: Double = 0.0,
+
+    @OneToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    var user: User
 )
