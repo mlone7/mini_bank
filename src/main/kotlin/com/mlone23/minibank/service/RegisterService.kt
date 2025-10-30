@@ -19,12 +19,9 @@ class RegisterService(
         val encodePassword = passwordEncoder.encode(password)
 
         val newUser = User(email, name, encodePassword)
-        val savedUser = userRepository.save(newUser)
 
-        val newAccount = Account(name, 0.0, savedUser)
-        accountRepository.save(newAccount)
 
-        return savedUser
+        return userRepository.save(newUser)
     }
 
 

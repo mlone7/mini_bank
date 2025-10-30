@@ -13,12 +13,5 @@ data class Account(
     var ownerName: String,
 
     @Column(nullable = false)
-    var balance: Double = 0.0,
-
-    @OneToOne
-    @JoinColumn(name = "user_id", nullable = false)
-    var user: User
-){
-    constructor(): this(null,"",0.0, User())
-    constructor(ownerName: String, balance: Double, user: User) : this (null, ownerName, balance, user)
-}
+    var balance: Double = 0.0
+)
