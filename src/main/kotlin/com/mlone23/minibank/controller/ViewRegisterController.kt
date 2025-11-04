@@ -1,7 +1,5 @@
 package com.mlone23.minibank.controller
 
-import com.mlone23.minibank.repository.AccountRepository
-import com.mlone23.minibank.service.AccountService
 import com.mlone23.minibank.service.RegisterService
 import org.springframework.stereotype.Controller
 import org.springframework.ui.Model
@@ -11,8 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam
 
 @Controller
 class ViewRegisterController(
-    private val registerService: RegisterService,
-    private val accountRepository: AccountRepository
+    private val registerService: RegisterService
 ) {
 
     @GetMapping("/register")
@@ -28,7 +25,7 @@ class ViewRegisterController(
         return try {
             registerService.registryUser(email, password, name)
             model.addAttribute("success", "User registered successfully!")
-            "redirect:/login"
+            "redirect:/dashboard"
         } catch (e: Exception) {
             model.addAttribute("error", "Error: ${e.message}")
             "register"

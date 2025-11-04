@@ -73,8 +73,10 @@
     }
   </style>
 </head>
+<body>
+
 <div class="page-header">
-  <h1 class="page-title">Welcome </h1> <!-- Добавлено имя -->
+  <h1 class="page-title">Welcome to the Mini-Bank 👋</h1>
   <p class="page-subtitle">Manage your bank account</p>
 </div>
 
@@ -82,15 +84,15 @@
 
 <div class="card">
   <h3>Current Balance:</h3>
-  <h2 th:text="${(balance ?: 0) + ' ₽'}"></h2> <!-- Защита от null -->
+  <h2 th:text="${balance} + ' ₽'"></h2>
 </div>
 
 <div class="card">
-  <form method="post" th:action="@{/dashboard/{id}/deposit(id=${account.id})}">
-    <!-- Убрано лишнее скрытое поле name -->
+  <form method="post" th:action="@{/dashboard/topup}">
+    <input type="hidden" name="name" th:value="${name}" />
     <div class="form-group">
       <label>Amount to Top Up:</label>
-      <input type="number" name="amount" step="0.01" min="0.01" required />
+      <input type="number" name="amount" step="0.01" min="1" required />
     </div>
     <button type="submit">Add Funds</button>
   </form>

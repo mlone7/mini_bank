@@ -10,7 +10,7 @@ data class Account(
     var id: Long? = null,
 
     @Column(nullable = false)
-    var ownerEmail: String,
+    var ownerName: String,
 
     @Column(nullable = false)
     var balance: Double = 0.0,
@@ -20,5 +20,5 @@ data class Account(
     var user: User
 ){
     constructor(): this(null,"",0.0, User())
-    constructor(ownerEmail: String, balance: Double, user: User) : this (null, ownerEmail, balance, user)
+    constructor(ownerName: String, balance: Double, user: User) : this (null, ownerName, balance, user)
 }
