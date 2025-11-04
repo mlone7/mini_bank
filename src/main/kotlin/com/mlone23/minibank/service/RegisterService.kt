@@ -21,14 +21,9 @@ class RegisterService(
         val newUser = User(email, name, encodePassword)
         val savedUser = userRepository.save(newUser)
 
-        val newAccount = Account(name, 0.0, savedUser)
+        val newAccount = Account(email, 0.0, savedUser)
         accountRepository.save(newAccount)
 
         return savedUser
     }
-
-
-
-
-
 }
