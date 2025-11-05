@@ -18,8 +18,8 @@ class AccountService(
         }
     }
 
-    fun deposit(amount: Double, accountNumber: Int): Account {
-        val account = accountRepository.findByAccountNumber(accountNumber)
+    fun deposit(amount: Double, accountId: Long): Account {
+        val account = accountRepository.findById(accountId).orElseThrow { throw RuntimeException("Error") }
 
         account.balance += amount
         return accountRepository.save(account)

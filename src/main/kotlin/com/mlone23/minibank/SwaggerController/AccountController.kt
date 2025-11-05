@@ -7,6 +7,7 @@ import com.mlone23.minibank.service.AccountService
 import org.springframework.http.ResponseEntity
 import org.springframework.security.core.context.SecurityContextHolder
 import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestParam
 import org.springframework.web.bind.annotation.RestController
@@ -16,7 +17,8 @@ import org.springframework.web.bind.annotation.RestController
 class AccountController(
     val account: AccountService,
     val userRepository: UserRepository,
-    val accountRepository: AccountRepository
+    val accountRepository: AccountRepository,
+    val accountService: AccountService
 ) {
 
     @PostMapping("/createAccount")
@@ -42,8 +44,10 @@ class AccountController(
         return ResponseEntity.ok("Transactions completed")
     }
 
-    @PostMapping("/deposit")
-    fun deposit(numberAccount: Int, amount: Double): Account {
+    @PostMapping("/dashboard/deposit")
+    fun deposit(@RequestParam accountId: Long, @RequestParam amount: Double): ResponseEntity<String> {
+        val account = accountService.deposit(amount, accountId)
 
+        return ResponseEntity.ok("Deposit is successful")
     }
 }
