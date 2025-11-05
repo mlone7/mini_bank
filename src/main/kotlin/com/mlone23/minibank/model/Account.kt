@@ -10,15 +10,19 @@ data class Account(
     var id: Long? = null,
 
     @Column(nullable = false)
-    var ownerName: String,
+    var ownerEmail: String,
 
     @Column(nullable = false)
     var balance: Double = 0.0,
 
-    @OneToOne
+    @Column(nullable = false)
+    var accountNumber: Int,
+
+    @ManyToOne
     @JoinColumn(name = "user_id", nullable = false)
     var user: User
 ){
-    constructor(): this(null,"",0.0, User())
-    constructor(ownerName: String, balance: Double, user: User) : this (null, ownerName, balance, user)
+    constructor(): this(null,"",0.0, 0, User())
+    constructor(ownerEmail: String, balance: Double, accountNumber: Int,user: User)
+            : this (null, ownerEmail, balance, accountNumber, user)
 }

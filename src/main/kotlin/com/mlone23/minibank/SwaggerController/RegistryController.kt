@@ -1,4 +1,4 @@
-package com.mlone23.minibank.controller
+package com.mlone23.minibank.SwaggerController
 
 import com.mlone23.minibank.model.User
 import com.mlone23.minibank.service.RegisterService

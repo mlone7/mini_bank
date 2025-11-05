@@ -11,7 +11,8 @@ import org.springframework.stereotype.Service
 class RegisterService(
     val userRepository: UserRepository,
     val accountRepository: AccountRepository,
-    val passwordEncoder: PasswordEncoder
+    val passwordEncoder: PasswordEncoder,
+    val accountService: AccountService
 ) {
 
     fun registryUser(email: String, name: String, password: String): User {
@@ -21,14 +22,10 @@ class RegisterService(
         val newUser = User(email, name, encodePassword)
         val savedUser = userRepository.save(newUser)
 
-        val newAccount = Account(name, 0.0, savedUser)
+
+        val newAccount = Account(email, 0.0, accountService.accountNumber(), savedUser)
         accountRepository.save(newAccount)
 
         return savedUser
     }
-
-
-
-
-
 }

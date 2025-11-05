@@ -1,6 +1,6 @@
 package com.mlone23.minibank.Security
 
-import com.mlone23.minibank.controller.RegistryController
+import com.mlone23.minibank.SwaggerController.RegistryController
 import com.mlone23.minibank.model.User
 import com.mlone23.minibank.security.SecurityConfig
 import com.mlone23.minibank.service.RegisterService

@@ -35,6 +35,7 @@ open class SecurityConfig(
                     "/v3/api-docs/**",
                 ).permitAll().anyRequest().authenticated()
             }
+            .httpBasic {  }
             .formLogin { form -> form.defaultSuccessUrl("/dashboard", true) }
             .userDetailsService(userDetailsService)
 
